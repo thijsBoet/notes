@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Sidebar from './components/Sidebar';
 import Editor from './components/Editor';
-import { data } from './data';
 import Split from 'react-split';
 import { nanoid } from 'nanoid';
 
@@ -33,7 +32,7 @@ const App = () => {
 
 	const deleteNote = (event, noteId) => {
 		event.stopPropagation();
-		setNotes(prevNotes => prevNotes.filter(note => note.id !== noteId));
+		setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId));
 	}
 
 	const findCurrentNote = () => notes.find(note => note.id === currentNoteId) || notes[0];
